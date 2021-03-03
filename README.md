@@ -12,5 +12,6 @@ Prebuilt APK in [app/release/app-release.apk](app/release/app-release.apk).
 
 ## Test
 
+- AVD x86_64: Google Play SPP1.210122.020.A3 Android 12 (S Developer Preview 1) (20/02/05)
 - Pixel 4 XL: Official SPP1.210122.020.A3 Android 12 (S Developer Preview 1) (20/02/05)
 - OnePlus 8T: Hydrogen OS 11.0.7.10.KB05 Android 11 (20/01/01)
