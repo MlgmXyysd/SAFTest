@@ -36,9 +36,13 @@ public class MainActivity extends AppCompatActivity {
         obbBtn.setOnClickListener(v -> selectObb());
     }
 
-    void selectData() {
+    String getUri(String path) {
         // See: http://mlgmxyysd.meowcat.org/2021/02/18/android-r-saf-data/
-        Uri uri = Uri.parse("content://com.android.externalstorage.documents/tree/primary%3AAndroid%2Fdata/document/primary%3AAndroid%2Fdata");
+        return "content://com.android.externalstorage.documents/tree/primary%3A" + path + "/document/primary%3A" + path;
+    }
+
+    void selectData() {
+        Uri uri = Uri.parse(getUri("Android%2Fdata"));
         Intent intent = new Intent("android.intent.action.OPEN_DOCUMENT_TREE");
         intent.putExtra("android.provider.extra.INITIAL_URI", uri);
         textView.setText("data: request permission");
@@ -46,8 +50,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void selectObb() {
-        // See: http://mlgmxyysd.meowcat.org/2021/02/18/android-r-saf-data/
-        Uri uri = Uri.parse("content://com.android.externalstorage.documents/tree/primary%3AAndroid%2Fobb/document/primary%3AAndroid%2Fobb");
+        Uri uri = Uri.parse(getUri("Android%2Fobb"));
         Intent intent = new Intent("android.intent.action.OPEN_DOCUMENT_TREE");
         intent.putExtra("android.provider.extra.INITIAL_URI", uri);
         textView.setText("obb: request permission");
